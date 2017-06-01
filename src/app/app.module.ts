@@ -5,15 +5,19 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { Route, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { AuthenticationService } from './services/authentication.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const appRoutes: Route[] = [
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'dashboard', component: DashboardComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +25,7 @@ const appRoutes: Route[] = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
