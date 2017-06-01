@@ -234,9 +234,16 @@ h2{
 	padding-bottom: 15px;
 }
 .bottom-line{
-	width: 25px;
-	height: 3px;
-	background-color: rgb(99, 122, 145);
+	width: 70px;
+	height: 2px;
+  margin-top: 35px;
+  background-color: rgb(99, 122, 145);
+}
+.bottom-line-2{
+  width: 100%;
+  height: 1px;
+  margin-top: 35px;
+  background-color: rgb(99, 122, 145);
 }
 .fea{
 	margin-top: 25px;
