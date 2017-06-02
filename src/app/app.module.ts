@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthenticationService } from './services/authentication.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
+import { GeneralStatisticsComponent } from './dashboard/general-statistics/general-statistics.component';
 
 const appRoutes: Route[] = [
   {path: 'login', component: LoginComponent},
@@ -19,7 +20,8 @@ const appRoutes: Route[] = [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    SidebarComponent
+    SidebarComponent,
+    GeneralStatisticsComponent
   ],
   imports: [
     BrowserModule,
