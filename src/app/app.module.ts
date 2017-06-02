@@ -9,6 +9,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { GeneralStatisticsComponent } from './dashboard/general-statistics/general-statistics.component';
+import { ProjectGanttComponent } from './shared/components/project-gantt/project-gantt.component';
 
 const appRoutes: Route[] = [
   {path: 'login', component: LoginComponent},
@@ -21,7 +22,8 @@ const appRoutes: Route[] = [
     LoginComponent,
     DashboardComponent,
     SidebarComponent,
-    GeneralStatisticsComponent
+    GeneralStatisticsComponent,
+    ProjectGanttComponent
   ],
   imports: [
     BrowserModule,
