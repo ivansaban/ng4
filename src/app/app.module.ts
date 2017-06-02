@@ -7,6 +7,7 @@ import { Route, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AuthenticationService } from './services/authentication.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 
 const appRoutes: Route[] = [
   {path: 'login', component: LoginComponent},
@@ -17,7 +18,8 @@ const appRoutes: Route[] = [
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
