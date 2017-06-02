@@ -12,14 +12,27 @@ export class AuthenticationService {
   currentUser: User;
 
   constructor(private http: Http, private router: Router) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   login(userDetails: UserDetails) {
-     this.http.post(API_BASE + '/login', userDetails)
-       .map(res => <User>res.json())
-       .subscribe(user => {
-         this.currentUser = user;
-         this.router.navigate(['/dashboard']);
-       });
+    this.http.post(API_BASE + '/login', userDetails)
+      .map(res => <User>res.json())
+      .subscribe(user => {
+        this.currentUser = user;
+        localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+        this.router.navigate(['/dashboard']);
+      });
+
+    // for testing
+    // this.currentUser = new User();
+    // this.currentUser.firstname = 'Pero';
+    // this.currentUser.lastname = 'Perić';
+    // localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+    // this.router.navigate(['/dashboard']);
+  }
+
+  getCurrentUser(): User {
+    return JSON.parse(localStorage.getItem('currentUser'));
   }
 }

@@ -11,11 +11,12 @@ import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { GeneralStatisticsComponent } from './dashboard/general-statistics/general-statistics.component';
 import { ProjectGanttComponent } from './shared/components/project-gantt/project-gantt.component';
 import { ProjectStatisticsComponent } from './dashboard/project-statistics/project-statistics.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const appRoutes: Route[] = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'dashboard', component: DashboardComponent}
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
@@ -34,7 +35,7 @@ const appRoutes: Route[] = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
