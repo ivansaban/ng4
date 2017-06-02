@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { GeneralStatisticsComponent } from './dashboard/general-statistics/general-statistics.component';
 import { ProjectGanttComponent } from './shared/components/project-gantt/project-gantt.component';
+import { ProjectStatisticsComponent } from './dashboard/project-statistics/project-statistics.component';
 
 const appRoutes: Route[] = [
   {path: 'login', component: LoginComponent},
@@ -23,7 +24,8 @@ const appRoutes: Route[] = [
     DashboardComponent,
     SidebarComponent,
     GeneralStatisticsComponent,
-    ProjectGanttComponent
+    ProjectGanttComponent,
+    ProjectStatisticsComponent
   ],
   imports: [
     BrowserModule,
