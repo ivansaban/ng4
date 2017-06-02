@@ -1,10 +1,10 @@
-import { User } from '../models/user.models';
+import { User } from '../models/user.model';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { UserDetails } from '../login/user-details.model';
 import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
-import {API_BASE} from './api-base.constant';
+import { API_BASE } from './api-base.constant';
 
 @Injectable()
 export class AuthenticationService {
