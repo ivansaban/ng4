@@ -17,11 +17,13 @@ export class AuthenticationService {
 
   login(userDetails: UserDetails) {
     this.http.post(API_BASE + '/login', userDetails)
-      .map(res => <User>res.json())
-      .subscribe(user => {
-        this.currentUser = user;
-        localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-        this.router.navigate(['/dashboard']);
+      .subscribe(response => {
+        if(response.status == 200){
+          const user = <User>response.json();
+          this.currentUser = user;
+          localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+          this.router.navigate(['/dashboard']);
+        }
       });
 
     // for testing
