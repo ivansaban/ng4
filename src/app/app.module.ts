@@ -13,6 +13,7 @@ import { ProjectGanttComponent } from './shared/components/project-gantt/project
 import { ProjectStatisticsComponent } from './dashboard/project-statistics/project-statistics.component';
 
 const appRoutes: Route[] = [
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent}
 ];

@@ -1,5 +1,8 @@
-export class User{
+import {Role} from './role.models';
+
+export class User {
   id: number;
   username: string;
-  role: string;
+  password: string;
+  role: Role;
 }
