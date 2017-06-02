@@ -11,6 +11,7 @@ import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { GeneralStatisticsComponent } from './dashboard/general-statistics/general-statistics.component';
 
 const appRoutes: Route[] = [
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent}
 ];
