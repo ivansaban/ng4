@@ -18,22 +18,17 @@ export class AuthenticationService {
   login(userDetails: UserDetails) {
     this.http.post(API_BASE + '/login', userDetails)
       .subscribe(response => {
-        if(response.status == 200){
+        if (response.status === 200) {
           const user = <User>response.json();
-          if(user.username != null){
-            this.currentUser = user;
-            localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-            this.router.navigate(['/dashboard']);
-          }
+          this.currentUser = user;
+          localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+          this.router.navigate(['/dashboard']);
+        }
+      }, error => {
+        if (error.status === 403 || error.status === 404) {
+          alert('Username and/or password are not correct!');
         }
       });
-
-    // for testing
-    // this.currentUser = new User();
-    // this.currentUser.firstname = 'Pero';
-    // this.currentUser.lastname = 'Perić';
-    // localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-    // this.router.navigate(['/dashboard']);
   }
 
   getCurrentUser(): User {
