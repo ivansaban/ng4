@@ -1,0 +1,8 @@
+<h2>Project name:</h2>
+<select [(ngModel)]="selectedProject" (ngModelChange)="onProjectChange($event)">
+  <option value=""></option>
+  <option *ngFor="let up of userProjects" [value]="up.name">{{ up.name }}</option>
+</select>
+<app-project-gantt></app-project-gantt>
+<br />
+<app-project-statistics></app-project-statistics>

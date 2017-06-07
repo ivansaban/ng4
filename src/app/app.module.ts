@@ -12,6 +12,8 @@ import { GeneralStatisticsComponent } from './dashboard/general-statistics/gener
 import { ProjectGanttComponent } from './shared/components/project-gantt/project-gantt.component';
 import { ProjectStatisticsComponent } from './dashboard/project-statistics/project-statistics.component';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { UserService } from './services/user.service';
+import { ProjectDetailsComponent } from './dashboard/project-details/project-details.component';
 
 const appRoutes: Route[] = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -27,7 +29,8 @@ const appRoutes: Route[] = [
     SidebarComponent,
     GeneralStatisticsComponent,
     ProjectGanttComponent,
-    ProjectStatisticsComponent
+    ProjectStatisticsComponent,
+    ProjectDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ const appRoutes: Route[] = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthenticationService, AuthGuard],
+  providers: [AuthenticationService, AuthGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
