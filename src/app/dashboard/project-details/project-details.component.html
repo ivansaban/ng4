@@ -5,11 +5,11 @@
   <div class="col-md-3" style="padding-top: 1%">
     <select class="form-control" [(ngModel)]="selectedProject" (ngModelChange)="onProjectChange($event)">
       <option value=""></option>
-      <option *ngFor="let up of userProjects" [ngValue]="up">{{ up.name }}</option>
+      <option *ngFor="let up of userProjectsForDropDown" [ngValue]="up">{{ up.name }}</option>
     </select>
   </div>
 </div>
 <br />
 <app-project-gantt [tasks]="tasks"></app-project-gantt>
 <br />
-<app-project-statistics></app-project-statistics>
+<app-project-statistics [finishedTasks]="finishedTasks" [inProgressTasks]="inProgressTasks" ></app-project-statistics>

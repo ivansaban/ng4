@@ -55,20 +55,10 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>User 1</td>
-        <td>Task12</td>
-        <td>Finished</td>
-      </tr>
-      <tr>
-        <td>User2</td>
-        <td>Task15</td>
-        <td>Finished</td>
-      </tr>
-      <tr>
-        <td>User3</td>
-        <td>Task20</td>
-        <td>Finished</td>
+      <tr *ngFor = "let task of finishedTasks">
+        <td>{{task.user.username}}</td>
+        <td>{{task.name}}</td>
+        <td><label class="label label-success">{{task.status}}</label></td>
       </tr>
       </tbody>
     </table>
@@ -87,10 +77,10 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>User 1</td>
-        <td>Task12</td>
-        <td>In progress</td>
+      <tr *ngFor = "let task of inProgressTasks">
+        <td>{{task.user.username}}</td>
+        <td>{{task.name}}</td>
+        <td><label class="label label-primary">{{task.status}}</label></td>
       </tr>
       </tbody>
     </table>

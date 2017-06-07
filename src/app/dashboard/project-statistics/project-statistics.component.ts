@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Task } from '../../models/task.model';
 
 @Component({
   selector: 'app-project-statistics',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectStatisticsComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  finishedTasks: Task[];
+  
+  @Input()
+  inProgressTasks: Task[];
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

@@ -14,6 +14,7 @@ import { ProjectStatisticsComponent } from './dashboard/project-statistics/proje
 import { AuthGuard } from './shared/guards/auth.guard';
 import { UserService } from './services/user.service';
 import { ProjectDetailsComponent } from './dashboard/project-details/project-details.component';
+import { ProjectService } from './services/project.service';
 
 const appRoutes: Route[] = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -38,7 +39,7 @@ const appRoutes: Route[] = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthenticationService, AuthGuard, UserService],
+  providers: [AuthenticationService, AuthGuard, UserService, ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
