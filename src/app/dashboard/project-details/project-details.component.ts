@@ -28,5 +28,8 @@ export class ProjectDetailsComponent implements OnInit {
       this.userService.getTasksForProject(this.authService.currentUser.id, userProject.id)
         .subscribe(projectTasks => this.tasks = projectTasks );
     }
+    else{
+      this.tasks = [];
+    }
   }
 }
