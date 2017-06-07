@@ -1,8 +1,15 @@
-<h2>Project name:</h2>
-<select [(ngModel)]="selectedProject" (ngModelChange)="onProjectChange($event)">
-  <option value=""></option>
-  <option *ngFor="let up of userProjects" [value]="up.name">{{ up.name }}</option>
-</select>
-<app-project-gantt></app-project-gantt>
+<div class="row">
+  <div class="col-md-2">
+    <h3>Project name:</h3>
+  </div>
+  <div class="col-md-3" style="padding-top: 1%">
+    <select class="form-control" [(ngModel)]="selectedProject" (ngModelChange)="onProjectChange($event)">
+      <option value=""></option>
+      <option *ngFor="let up of userProjects" [ngValue]="up">{{ up.name }}</option>
+    </select>
+  </div>
+</div>
+<br />
+<app-project-gantt [tasks]="tasks"></app-project-gantt>
 <br />
 <app-project-statistics></app-project-statistics>

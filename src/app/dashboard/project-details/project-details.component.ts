@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import { UserProject } from '../../models/user-project.model';
+import { Task } from '../../models/task.model';
 
 @Component({
   selector: 'app-project-details',
@@ -12,6 +13,7 @@ export class ProjectDetailsComponent implements OnInit {
 
   userProjects: UserProject[];
   selectedProject: UserProject;
+  tasks: Task[];
 
   constructor(private userService: UserService, private authService: AuthenticationService) {
   }
@@ -21,7 +23,10 @@ export class ProjectDetailsComponent implements OnInit {
       .subscribe(userProjects => this.userProjects = userProjects);
   }
 
-  onProjectChange(event: Event) {
-    console.log(event);
+  onProjectChange(userProject: any) {
+    if (userProject.id != null) {
+      this.userService.getTasksForProject(this.authService.currentUser.id, userProject.id)
+        .subscribe(projectTasks => this.tasks = projectTasks );
+    }
   }
 }

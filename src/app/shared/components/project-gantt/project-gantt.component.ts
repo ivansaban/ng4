@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Task } from '../../../models/task.model';
 
 @Component({
   selector: 'app-project-gantt',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectGanttComponent implements OnInit {
 
-
+  @Input() tasks: Task[];
 
   constructor() {
   }
