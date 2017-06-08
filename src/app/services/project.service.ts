@@ -18,4 +18,13 @@ export class ProjectService {
     return this.http.get(API_BASE + '/getProjectTasks/'+ projectId + '/' + status )
       .map(response => <Task[]> response.json());
   }
+
+  getStakeHolders(projectId: number): Observable<{username: string, taskCount: number, finishedPercentage: number}[]>{
+    return this.http.get(API_BASE + '/getProjectStakeholders/' + projectId)
+      .map(stakeHolders => {
+        const stakeHold = stakeHolders.json();
+        return <{username: string, taskCount: number, finishedPercentage: number}[]> stakeHold;
+        }
+      )
+  }
 }

@@ -25,4 +25,12 @@ export class UserService {
     return this.http.get(API_BASE + '/getTasks/' + userId + '/' + projectId)
       .map(response => <Task[]> response.json());
   }
+
+  getUserNumberStatistics(): Observable<{allUsers: number, maleUsers: number, femaleUsers: number}>{
+    return this.http.get(API_BASE + '/getAllUsers')
+      .map(response => {
+        const body = response.json();
+        return {allUsers: body.allUsers, maleUsers: body.maleUsers, femaleUsers: body.femaleUsers};
+      });
+  }
 }

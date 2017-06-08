@@ -10,9 +10,12 @@ export class ProjectStatisticsComponent implements OnInit {
 
   @Input()
   finishedTasks: Task[];
-  
+
   @Input()
   inProgressTasks: Task[];
+
+  @Input()
+  stakeHolders: any[];
 
   constructor() {
   }

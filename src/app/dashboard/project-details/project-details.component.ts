@@ -18,6 +18,7 @@ export class ProjectDetailsComponent implements OnInit {
 
   finishedTasks: Task[];
   inProgressTasks: Task[];
+  stakeHolders: any[];
 
   constructor(private userService: UserService, private authService: AuthenticationService, private  projectService: ProjectService) {
   }
@@ -37,11 +38,15 @@ export class ProjectDetailsComponent implements OnInit {
 
       this.projectService.getTasksForProjectWithStatus(userProject.id, 'In progress')
         .subscribe(inProgressTasks => this.inProgressTasks = inProgressTasks);
+
+      this.projectService.getStakeHolders(userProject.id)
+        .subscribe(stakeHold => this.stakeHolders = stakeHold);
     }
     else {
       this.tasks = [];
       this.finishedTasks = [];
       this.inProgressTasks = [];
+      this.stakeHolders = [];
     }
   }
 }
