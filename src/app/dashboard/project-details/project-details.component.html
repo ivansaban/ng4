@@ -3,8 +3,8 @@
     <h3>Project name:</h3>
   </div>
   <div class="col-md-3" style="padding-top: 1%">
-    <select class="form-control" [(ngModel)]="selectedProject" (ngModelChange)="onProjectChange($event)">
-      <option value=""></option>
+    <select class="form-control" [(ngModel)]="selectedProject" (ngModelChange)="onProjectChange($event)"  >
+      <!--<option value=""></option>-->
       <option *ngFor="let up of userProjectsForDropDown" [ngValue]="up">{{ up.name }}</option>
     </select>
   </div>

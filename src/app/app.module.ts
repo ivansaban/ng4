@@ -7,7 +7,7 @@ import { Route, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AuthenticationService } from './services/authentication.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 import { GeneralStatisticsComponent } from './dashboard/general-statistics/general-statistics.component';
 import { ProjectGanttComponent } from './shared/components/project-gantt/project-gantt.component';
 import { ProjectStatisticsComponent } from './dashboard/project-statistics/project-statistics.component';

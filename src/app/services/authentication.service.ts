@@ -5,15 +5,17 @@ import { UserDetails } from '../login/user-details.model';
 import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
 import { API_BASE } from './api-base.constant';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class AuthenticationService {
 
   currentUser: User;
+  loginNotification = new Subject<User>();
 
   constructor(private http: Http, private router: Router) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  }
+  this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+}
 
   login(userDetails: UserDetails) {
     this.http.post(API_BASE + '/login', userDetails)
@@ -22,6 +24,7 @@ export class AuthenticationService {
           const user = <User>response.json();
           this.currentUser = user;
           localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+          this.loginNotification.next(this.currentUser);
           this.router.navigate(['/dashboard']);
         }
       }, error => {
