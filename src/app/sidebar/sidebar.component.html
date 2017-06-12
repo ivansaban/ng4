@@ -37,7 +37,7 @@
         <i class="fa fa-home fa-2x pull-right" aria-hidden="true"></i>
       </div>
       <div class="col-xs-10 col-md-10">
-        <a>Dashboard</a>
+        <a class="default-link-color" routerLinkActive="link-active" routerLink="/dashboard">Dashboard</a>
       </div>
     </div>
     <br/>
@@ -46,16 +46,16 @@
         <i class="fa fa-line-chart fa-2x pull-right" aria-hidden="true"></i>
       </div>
       <div class="col-xs-10 col-md-10">
-        <a>Project Management</a>
+        <a class="default-link-color" routerLinkActive="link-active" routerLink="/project-management">Project Management</a>
       </div>
     </div>
     <br/>
-    <div class="row">
+    <div class="row" *ngIf="user.role.name==='ADMIN'">
       <div class="col-xs-2 col-md-2">
         <i class="fa fa-user fa-2x pull-right" aria-hidden="true"></i>
       </div>
       <div class="col-xs-10 col-md-10">
-        <a>User Management</a>
+        <a  class="default-link-color" routerLinkActive="link-active" routerLink="/user-management">User Management</a>
       </div>
     </div>
 

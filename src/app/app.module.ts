@@ -15,11 +15,13 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { UserService } from './services/user.service';
 import { ProjectDetailsComponent } from './dashboard/project-details/project-details.component';
 import { ProjectService } from './services/project.service';
+import { UserManagementComponent } from './user-management/user-management.component';
 
 const appRoutes: Route[] = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]}
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'user-management', component: UserManagementComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
@@ -31,7 +33,8 @@ const appRoutes: Route[] = [
     GeneralStatisticsComponent,
     ProjectGanttComponent,
     ProjectStatisticsComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    UserManagementComponent
   ],
   imports: [
     BrowserModule,

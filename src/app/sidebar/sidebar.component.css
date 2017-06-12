@@ -1,7 +1,19 @@
 /*#profile-sidebar {*/
 /*border-right: solid #bebebe thin;*/
 /*}*/
+.sidebarHeight{
+  min-height: 900px;
+}
 
 #profile-image {
   margin-top: 10px;
+}
+
+.default-link-color {
+  cursor: pointer;
+  color: #4B4B4C;
+}
+
+.link-active {
+  color: #5FCF80;
 }
