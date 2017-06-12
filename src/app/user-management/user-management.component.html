@@ -2,22 +2,54 @@
 <h2>Add new User</h2>
 <hr/>
 
-<form class="col-md-offset-2 col-md-6">
+<form #newUserForm="ngForm" class="col-md-offset-2 col-md-6" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="username">Username:</label>
-    <input type="text" class="form-control" id="username" placeholder="Enter username">
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      placeholder="Enter username"
+      name="username"
+      [(ngModel)]="model.username"
+      #username="ngModel"
+      required>
   </div>
   <div class="form-group">
     <label for="firstname">First name:</label>
-    <input type="text" class="form-control" id="firstname" placeholder="Enter first name">
+    <input
+      type="text"
+      class="form-control"
+      id="firstname"
+      placeholder="Enter first name"
+      name="firstname"
+      [(ngModel)]="model.firstname"
+      #firstname="ngModel"
+      required>
   </div>
   <div class="form-group">
     <label for="lastname">Last name:</label>
-    <input type="text" class="form-control" id="lastname" placeholder="Enter last name">
+    <input
+      type="text"
+      class="form-control"
+      id="lastname"
+      placeholder="Enter last name"
+      name="lastname"
+      [(ngModel)]="model.lastname"
+      #lastname="ngModel"
+      required>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password:</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="inputPassword">Password:</label>
+    <input
+      type="password"
+      class="form-control"
+      id="inputPassword"
+      placeholder="Password"
+      name="inputPassword"
+      [(ngModel)]="model.password"
+      #password="ngModel"
+      required>
   </div>
 
   <div class="form-group">

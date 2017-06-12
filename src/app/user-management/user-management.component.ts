@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewUserRequest } from './new-user-request.model';
 
 @Component({
   selector: 'app-user-management',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserManagementComponent implements OnInit {
 
+  model = new NewUserRequest();
+
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  onSubmit(){
+    console.log(this.model);
   }
 
 }
