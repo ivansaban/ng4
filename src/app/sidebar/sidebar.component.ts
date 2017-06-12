@@ -27,4 +27,8 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  onLogout(){
+    this.authService.logout();
+  }
+
 }

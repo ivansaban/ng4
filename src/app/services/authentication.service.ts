@@ -14,8 +14,8 @@ export class AuthenticationService {
   loginNotification = new Subject<User>();
 
   constructor(private http: Http, private router: Router) {
-  this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-}
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
 
   login(userDetails: UserDetails) {
     this.http.post(API_BASE + '/login', userDetails)
@@ -32,6 +32,23 @@ export class AuthenticationService {
           alert('Username and/or password are not correct!');
         }
       });
+  }
+
+  logout() {
+    this.http.get(API_BASE + '/logout')
+      .subscribe(response => {
+
+        if (response.status == 200) {
+          this.currentUser = null;
+          localStorage.removeItem('currentUser');
+          this.loginNotification.next(null);
+          this.router.navigate(['/login']);
+        }
+      }), error => {
+      if (error.status === 403 || error.status === 404) {
+        alert('Can\'t logout');
+      }
+    }
   }
 
   getCurrentUser(): User {
