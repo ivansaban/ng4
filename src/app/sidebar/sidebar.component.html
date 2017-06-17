@@ -23,8 +23,7 @@
           alt="Loading profile image...">
       </div>
       <div class="col-md-8" style="padding-top: 5%">
-        <p>Welcome,</p>
-        <p>{{user.firstname}} {{user.lastname}}</p>
+        <a  class="default-link-color" routerLinkActive="link-active" routerLink="/user-management"><p>Welcome,</p><p>{{user.firstname}} {{user.lastname}}</p></a>
         <button class="btn btn-default" (click)="onLogout()">Logout</button>
       </div>
     </div>
@@ -50,7 +49,7 @@
       </div>
     </div>
     <br/>
-    <div class="row" *ngIf="user.role.name==='ADMIN'">
+    <div class="row" *ngIf="user.role.name ==='ADMIN'">
       <div class="col-xs-2 col-md-2">
         <i class="fa fa-user fa-2x pull-right" aria-hidden="true"></i>
       </div>

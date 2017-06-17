@@ -16,6 +16,7 @@ import { UserService } from './services/user.service';
 import { ProjectDetailsComponent } from './dashboard/project-details/project-details.component';
 import { ProjectService } from './services/project.service';
 import { UserManagementComponent } from './user-management/user-management.component';
+import { UserManagementService } from './services/user-management.service';
 
 const appRoutes: Route[] = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -42,7 +43,7 @@ const appRoutes: Route[] = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthenticationService, AuthGuard, UserService, ProjectService],
+  providers: [AuthenticationService, AuthGuard, UserService, ProjectService, UserManagementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

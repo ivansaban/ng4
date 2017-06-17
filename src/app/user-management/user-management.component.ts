@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewUserRequest } from './new-user-request.model';
+import { UserManagementService } from '../services/user-management.service';
 
 @Component({
   selector: 'app-user-management',
@@ -10,7 +11,7 @@ export class UserManagementComponent implements OnInit {
 
   model = new NewUserRequest();
 
-  constructor() { }
+  constructor(private userManagementService: UserManagementService) { }
 
   ngOnInit() {
 
@@ -18,6 +19,7 @@ export class UserManagementComponent implements OnInit {
 
   onSubmit(){
     console.log(this.model);
+    this.userManagementService.postCreateNewUser(this.model);
   }
 
 }

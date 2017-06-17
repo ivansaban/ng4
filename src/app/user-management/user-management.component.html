@@ -54,19 +54,33 @@
 
   <div class="form-group">
     <label for="role">User role:</label>
-    <select class="form-control" id="role">
-      <option>user</option>
-      <option>admin</option>
+    <select class="form-control" id="role" name="roleId" [(ngModel)]="model.roleId" #roleId="ngModel">
+      <option value="1">user</option>
+      <option value="2">admin</option>
     </select>
   </div>
 
   <fieldset class="form-group">
     <label class=" radio-inline">
-      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+      <input
+        type="radio"
+        name="optionsRadios"
+        id="optionsRadios1"
+        value="male"
+        [(ngModel)]="model.gender"
+        #gender="ngModel">
       Male
     </label>
     <label class="radio-inline">
-      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" checked>
+      <input
+        type="radio"
+        name="optionsRadios"
+        id="optionsRadios2"
+        value="female"
+        checked
+        [(ngModel)]="model.gender"
+        #gender="ngModel"
+      >
       Female
     </label>
   </fieldset>
