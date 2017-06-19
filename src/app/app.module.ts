@@ -18,10 +18,11 @@ import { ProjectService } from './services/project.service';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { UserManagementService } from './services/user-management.service';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { SidebarGuard } from './shared/guards/sidebar.guard';
 
 const appRoutes: Route[] = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginComponent, canActivate: [SidebarGuard]},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'user-management', component: UserManagementComponent, canActivate: [AuthGuard]},
   {path: 'user-details', component: UserDetailsComponent, canActivate: [AuthGuard]}
@@ -46,7 +47,7 @@ const appRoutes: Route[] = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthenticationService, AuthGuard, UserService, ProjectService, UserManagementService],
+  providers: [AuthenticationService, AuthGuard, UserService, ProjectService, UserManagementService, SidebarGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

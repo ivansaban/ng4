@@ -26,15 +26,18 @@
         id="username"
         type="text"
         name="username"
+        placeholder={{currentUser.username}}
         [(ngModel)]="model.username"
         #username="ngModel"
-        required/><br/><br/>
+        required
+        [disabled]="true"/><br/><br/>
 
       <label for="firstname">First name:</label>
       <input
         id="firstname"
         type="text"
         name="firstname"
+        placeholder= {{currentUser.firstname}}
         [(ngModel)]="model.firstname"
         #firstname="ngModel"
         required/><br/><br/>
@@ -44,6 +47,7 @@
         id="lastname"
         type="text"
         name="lastname"
+        placeholder= {{currentUser.lastname}}
         [(ngModel)]="model.lastname"
         #lastname="ngModel"
         required/><br/><br>
@@ -65,9 +69,9 @@
             name="optionsRadios"
             id="optionsRadios2"
             value="female"
-            checked
             [(ngModel)]="model.gender"
-            #gender="ngModel">
+            #gender="ngModel"
+            >
           Female
         </label>
       </fieldset>

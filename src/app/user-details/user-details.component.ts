@@ -1,6 +1,9 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { UserManagementService } from '../services/user-management.service';
 import { EditUserRequest } from './edit-user-request.model';
+import { User } from '../models/user.model';
+import { AuthenticationService } from '../services/authentication.service';
+// import _ from "lodash";
 
 @Component({
   selector: 'app-user-details',
@@ -12,18 +15,24 @@ export class UserDetailsComponent implements OnInit {
 
   public editProfileMode: boolean;
   public projectViewMode: boolean;
+  public currentUser: User;
 
   model = new EditUserRequest();
 
-  constructor(private userManagmentService: UserManagementService) { }
+  constructor(private userManagmentService: UserManagementService, private authService: AuthenticationService) { }
 
   ngOnInit() {
     this.editProfileMode = true;
     this.projectViewMode = false;
+    this.currentUser = this.authService.getCurrentUser();
   }
 
   save(){
     console.log(this.model);
+    this.model.username = this.currentUser.username;
+    // if(_.isEq){
+    //
+    // }
     this.userManagmentService.postEditedUser(this.model);
   }
 
