@@ -4,15 +4,15 @@
     <th>Task name</th>
     <th>Start time</th>
     <th>Duration</th>
-    <th>June 3 June 4 June 5 June 6 June 7</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let task of tasks">
-    <td>{{task.name}}</td>
-    <td>{{task.created}}</td>
-    <td>{{task.estimated}}</td>
-    <td>{{task.estimated}}</td>
+    <td style="vertical-align: middle;">{{task.name}}</td>
+    <td style="vertical-align: middle;">{{task.created}}</td>
+    <td style="vertical-align: middle;">{{task.estimated}}</td>
+    <td><button type="button" class="btn btn-success btn-xs" style="padding: 5px 20px;" [disabled]="task.status == 'Finished'" (click)="finishTask(task.id);">Finish</button></td>
   </tr>
 
   </tbody>

@@ -27,13 +27,17 @@ export class UserDetailsComponent implements OnInit {
     this.currentUser = this.authService.getCurrentUser();
   }
 
-  save(){
+  save() {
     console.log(this.model);
     this.model.username = this.currentUser.username;
+    this.model.firstname = this.currentUser.firstname;
+    this.model.lastname = this.currentUser.lastname;
+    this.model.gender = this.currentUser.gender;
     // if(_.isEq){
     //
     // }
     this.userManagmentService.postEditedUser(this.model);
+    localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
   }
 
   onEditProfile(){

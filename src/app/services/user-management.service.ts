@@ -17,18 +17,18 @@ export class UserManagementService {
     this.http.post(API_BASE + '/addUser', newUser)
       .subscribe(response => {
         if (response.status === 200) {
-          console.log("Added new user");
+          alert('Added new user');
         }
       });
   }
 
   postEditedUser(editedUser: EditUserRequest){
-    console.log("Im in save");
+    console.log('Im in save');
     console.log(editedUser);
     this.http.put(API_BASE + '/editUser', editedUser)
       .subscribe(response => {
         if (response.status === 200) {
-          console.log("Edited user");
+          alert('Profile is successfully updated!');
       }
     })
   }

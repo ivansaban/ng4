@@ -19,6 +19,7 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { UserManagementService } from './services/user-management.service';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { SidebarGuard } from './shared/guards/sidebar.guard';
+import {TaskService} from './services/task.service';
 
 const appRoutes: Route[] = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -47,7 +48,7 @@ const appRoutes: Route[] = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthenticationService, AuthGuard, UserService, ProjectService, UserManagementService, SidebarGuard],
+  providers: [AuthenticationService, AuthGuard, UserService, ProjectService, UserManagementService, SidebarGuard, TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

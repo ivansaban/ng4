@@ -17,7 +17,7 @@ export class UserManagementComponent implements OnInit {
 
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.model);
     this.userManagementService.postCreateNewUser(this.model);
   }

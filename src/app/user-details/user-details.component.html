@@ -26,8 +26,7 @@
         id="username"
         type="text"
         name="username"
-        placeholder={{currentUser.username}}
-        [(ngModel)]="model.username"
+        [(ngModel)]="currentUser.username"
         #username="ngModel"
         required
         [disabled]="true"/><br/><br/>
@@ -37,8 +36,7 @@
         id="firstname"
         type="text"
         name="firstname"
-        placeholder= {{currentUser.firstname}}
-        [(ngModel)]="model.firstname"
+        [(ngModel)]="currentUser.firstname"
         #firstname="ngModel"
         required/><br/><br/>
 
@@ -47,8 +45,7 @@
         id="lastname"
         type="text"
         name="lastname"
-        placeholder= {{currentUser.lastname}}
-        [(ngModel)]="model.lastname"
+        [(ngModel)]="currentUser.lastname"
         #lastname="ngModel"
         required/><br/><br>
 
@@ -59,7 +56,7 @@
             name="optionsRadios"
             id="optionsRadios1"
             value="male"
-            [(ngModel)]="model.gender"
+            [(ngModel)]="currentUser.gender"
             #gender="ngModel">
           Male
         </label>
@@ -69,7 +66,7 @@
             name="optionsRadios"
             id="optionsRadios2"
             value="female"
-            [(ngModel)]="model.gender"
+            [(ngModel)]="currentUser.gender"
             #gender="ngModel"
             >
           Female
