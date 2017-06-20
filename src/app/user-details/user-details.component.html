@@ -76,8 +76,24 @@
       <button class="btn btn-success" type="submit" (click)="save()">Save</button>
     </div>
 
-    <div class="col-md-12" *ngIf="projectViewMode" style="margin-left: 30%;">
+    <div class="col-md-6" *ngIf="projectViewMode" style="margin-left: 15%;">
       <h2>Projects</h2>
+      <table class="table table-striped" width="60%">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Project Name</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let project of projects">
+          <td>{{project.id}}</td>
+          <td>{{project.name}}</td>
+          <td>-</td>
+        </tr>
+        </tbody>
+      </table>
     </div>
 
   </div>

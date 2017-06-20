@@ -3,6 +3,8 @@ import { UserManagementService } from '../services/user-management.service';
 import { EditUserRequest } from './edit-user-request.model';
 import { User } from '../models/user.model';
 import { AuthenticationService } from '../services/authentication.service';
+import { UserService } from 'app/services/user.service';
+import { UserProject } from '../models/user-project.model';
 // import _ from "lodash";
 
 @Component({
@@ -18,13 +20,15 @@ export class UserDetailsComponent implements OnInit {
   public currentUser: User;
 
   model = new EditUserRequest();
+  projects: UserProject[];
 
-  constructor(private userManagmentService: UserManagementService, private authService: AuthenticationService) { }
+  constructor(private userManagmentService: UserManagementService, private authService: AuthenticationService, private userService: UserService) { }
 
   ngOnInit() {
     this.editProfileMode = true;
     this.projectViewMode = false;
     this.currentUser = this.authService.getCurrentUser();
+    this.projects = [];
   }
 
   save() {
@@ -33,11 +37,10 @@ export class UserDetailsComponent implements OnInit {
     this.model.firstname = this.currentUser.firstname;
     this.model.lastname = this.currentUser.lastname;
     this.model.gender = this.currentUser.gender;
-    // if(_.isEq){
-    //
-    // }
+
     this.userManagmentService.postEditedUser(this.model);
     localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+    this.authService.loginNotification.next(this.currentUser);
   }
 
   onEditProfile(){
@@ -48,5 +51,10 @@ export class UserDetailsComponent implements OnInit {
   onProjectView(){
     this.editProfileMode = false;
     this.projectViewMode = true;
+
+    this.userService.getProjectForUser(this.currentUser.id)
+      .subscribe(userProjects => {
+        this.projects = userProjects;
+      });
   }
 }
